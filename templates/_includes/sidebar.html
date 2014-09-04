@@ -1,7 +1,10 @@
 <aside class="sidebar">
   {% if SIDEBAR_IMAGE %}
-  <section>
+  <section style="text-align:center">
 	  <img src="{{ SITEURL }}/{{ SIDEBAR_IMAGE }}" alt="{{ SIDEBAR_IMAGE_ALT}}" width="{{SIDEBAR_IMAGE_WIDTH}}"/> 
+  </section>
+  <section>
+      {{TAGLINE}}
   </section>
   {% endif %}
   <section>
@@ -29,13 +32,14 @@
   <section>
   <h1>Tags</h1>
   {% for tag, article in tags %}
-    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+  {%  if article|length > 4 %}
+  {%  set size = "big" %}
+  {% else %}
+  {% set size = article|length %}
+  {%  endif %}
+  <a title="View {{article|length}} article{%  if article|length > 1 %}s{%endif%} with the tag {{tag}}." href="{{ SITEURL }}/{{ tag.url }}" class="tagcloud{{size}}">{{ tag }}</a>{% if not loop.last %},{% endif %}
   {% endfor %}
   </section>
 
-  {% include '_includes/github.html' %}
   {% include '_includes/social.html' %}
-  {% include '_includes/links.html' %}
-  {% include '_includes/twitter_sidebar.html' %}
-  {% include '_includes/gplus_sidebar.html' %}
 </aside>

@@ -10,7 +10,7 @@
       <p class="meta">{% include '_includes/article_time.html' %}</p>
 </header>
 
-{% if index %}
+{% if index and SUMMARY_FOR_INDEX %}
   <div class="entry-content">{{ article.summary }}</div>
   {% if article.summary != article.content %}
   <footer>

@@ -8,6 +8,20 @@
       <h1 class="entry-title">{{ page.title }}</h1>
     </header>
     {{ page.content }}
-  </article>
+{% if not page.hide %}
+    <footer>
+        <p class="meta">
+        <span><a href="https://github.com/roidelapluie/blog/tree/master/content/articles/{{page.git_filename}}">Source</a></span>
+        <span class="changelog"><a href="https://github.com/roidelapluie/blog/commits/master/content/articles/{{page.git_filename}}" >Changelog</a></span>
+        </p>
+    </footer>
+{% endif %}
+</article>
+{% if not page.hide %}
+<div class="pagination">
+    <a class="prev" href="{{ SITEURL }}/wiki/index.html">&larr; Back to wiki</a>
+    <br />
+</div>
+{% endif %}
 </div>
 {% endblock %}

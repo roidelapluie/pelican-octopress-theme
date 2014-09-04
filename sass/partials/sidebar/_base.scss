@@ -20,6 +20,9 @@ aside.sidebar {
         padding-top: .4em;
       }
     }
+    &:first-of-type {
+        margin-top: 1.5em;
+    }
   }
   img {
     @extend .flex-content;
@@ -43,6 +46,21 @@ aside.sidebar {
   a {
     color: inherit;
     @include transition(color .5s);
+    &.tagcloud1{
+        font-size: 0.8em;
+    }
+    &.tagcloud2{
+        font-size: 1.0em;
+    }
+    &.tagcloud3{
+        font-size: 1.2em;
+    }
+    &.tagcloud4{
+        font-size: 1.4em;
+    }
+    &.tagcloudbig{
+        font-size: 1.6em;
+    }
   }
   &:hover a {
     color: $sidebar-link-color;
@@ -65,6 +83,11 @@ aside.sidebar {
     color: mix($text-color-light, $sidebar-bg);
     width: 9px;
     cursor: pointer;
+    section {
+        &:first-of-type {
+            margin-top: 0em;
+        }
+    }
     &:hover {
       background: mix($sidebar-border, $sidebar-bg);
       @include background(linear-gradient(left, rgba($sidebar-border, .5), rgba($sidebar-border, 0)));

@@ -1,10 +1,8 @@
 <p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">{{ article.author }}</span>
-  </span>
-  {% include '_includes/article_time.html' %}
+<span><a href="https://github.com/roidelapluie/blog/tree/master/content/articles/{{article.git_filename}}">Source</a></span>
+<span class="changelog"> <a href="https://github.com/roidelapluie/blog/commits/master/content/articles/{{article.git_filename}}" >Changelog</a></span>
   {% if article.tags %}
-  <span class="categories">
+  <span class="categories"> Tags:
     {% for tag in article.tags %}
     <a class="category" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
     {% endfor %}

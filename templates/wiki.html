@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% set index=True %}
+<div>
+  {% if PAGES %}
+  <article role="article">
+    <header>
+      <h1 class="entry-title">Wiki
+      </h1>
+    </header>
+  	{% for page in PAGES %}
+    {% if not page.hide %}
+    <h3><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title|striptags }}</a></h3>
+    {% endif %}
+  	{% endfor %}
+  		</article>
+  {% endif %}
+</div>
+{% endblock %}
