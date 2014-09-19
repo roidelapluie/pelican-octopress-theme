@@ -1,4 +1,4 @@
-.highlight, html .gist .gist-file .gist-syntax .gist-highlight {
+.highlight, .codehilite, html .gist .gist-file .gist-syntax .gist-highlight {
   table td.code { width: 100%; }
   .line-numbers {
     text-align: right;
@@ -190,7 +190,7 @@ p, li {
   div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
 }
 
-.highlight, .gist-highlight {
+.highlight, .codehilite, .gist-highlight {
   pre { @extend .pre-code; background: none; @include border-radius(none); border: none; padding: 0; margin-bottom: 0; }
   margin-bottom: 1.8em;
   background: $base03;
