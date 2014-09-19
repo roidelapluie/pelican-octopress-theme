@@ -9,10 +9,13 @@ dd {margin-left: 1.5em;}
 
 div.alert{
     @include border-radius(0.4em);
-    border: 1px solid $solar-orange;
+    border: 1px solid $solar-red;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: $solar-red;
+    color: $solar-orange;
     background-color: #fdf6e3;
     padding: .8em !important;
+    a{
+    color: $solar-orange;
+    }
 }
