@@ -101,6 +101,7 @@ textarea {
   color: $pre-color;
   overflow: auto;
   width:100%;
+  height: 40em;
 }
 h3.filename {
   @extend .code-title;
