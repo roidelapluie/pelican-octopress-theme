@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%block extraheader%}
+  <script src="{{ SITEURL }}/theme/js/openpgp.min.js"></script>
+  <script>
+    var openpgp = require('openpgp');
+  </script>
+  <script src="{{ SITEURL }}/gpg/mygpgkey.js"></script>
+{%endblock%}
+{%block extrafooter%}
+  <script>
+    var textarea = document.querySelector(".opengpginput");
+    var result = document.querySelector(".opengpgoutput");
+    var pgpbutton = document.querySelector(".opengpgbutton");
+    var clearpgp = function(){
+        result.textContent = 'Click the encrypt button to encrypt the data.';
+    }
+    var encryptpgp = function(){
+        result.textContent = 'Computation in progress...';
+        result.textContent = openpgp.encryptMessage(publicKey.keys, textarea.value);
+    }
+    textarea.onchange = clearpgp;
+    textarea.onkeyup = clearpgp;
+    pgpbutton.onclick = encryptpgp;
+</script>
+{%endblock%}
+{% block title %}{{ page.title }} | {{ SITENAME }} {% endblock %}
+{% block content %}
+<div>
+  <article role="article">
+    <header>
+      {% include '_includes/qr_code.html' %}
+      <h1 class="entry-title">{{ page.title }}</h1>
+    </header>
+    {{ page.content }}
+{% if not page.hide %}
+    <footer>
+        <p class="meta">
+        <span><a href="{{page.source_link}}">Source</a></span>
+        <span class="changelog"><a href="{{page.change_link}}" >Changelog</a></span>
+        </p>
+    </footer>
+{% endif %}
+</article>
+{% if not page.hide %}
+<div class="pagination">
+    <a class="prev" href="{{ SITEURL }}/wiki/index.html">&larr; Back to wiki</a>
+    <br />
+</div>
+{% endif %}
+</div>
+{% endblock %}

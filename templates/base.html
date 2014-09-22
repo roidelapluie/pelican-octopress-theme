@@ -47,6 +47,7 @@
   {% if page and page.latex %}
     {{ page.latex }}
   {% endif %}
+  {%block extraheader%}{%endblock%}
 </head>
 
 <body>
@@ -60,5 +61,6 @@
   </div>
   <footer role="contentinfo">{% include '_includes/footer.html' %}</footer>
   {% include '_includes/after_footer.html' %}
+  {%block extrafooter%}{%endblock%}
 </body>
 </html>
