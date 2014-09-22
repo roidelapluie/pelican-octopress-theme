@@ -14,9 +14,12 @@
     var clearpgp = function(){
         result.textContent = 'Click the encrypt button to encrypt the data.';
     }
+    var actualencrypt = function(){
+        result.textContent = openpgp.encryptMessage(publicKey.keys, textarea.value);
+    }
     var encryptpgp = function(){
         result.textContent = 'Computation in progress...';
-        result.textContent = openpgp.encryptMessage(publicKey.keys, textarea.value);
+        setTimeout(function(){ actualencrypt(); }, 500);
     }
     textarea.onchange = clearpgp;
     textarea.onkeyup = clearpgp;
